@@ -168,7 +168,7 @@ const IdeaList: React.FC = () => {
         params.append("append[]", "small_image");
         params.append("append[]", "medium_image");
 
-        const apiUrl = `http://localhost:3001/api/ideas?${params.toString()}`;
+        const apiUrl = `/api/ideas?${params.toString()}`;
 
         const res = await fetch(apiUrl);
 

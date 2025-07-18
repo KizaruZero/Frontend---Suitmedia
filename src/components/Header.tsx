@@ -8,7 +8,6 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
@@ -62,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
                 key={item.name}
                 href={item.path}
                 className={`text-white hover:text-orange-200 transition-colors duration-200 relative text-sm xl:text-base ${
-                  currentPath === item.path
+                  window.location.pathname === item.path
                     ? 'after:content-[""] after:absolute after:bottom-[-8px] after:left-0 after:right-0 after:h-0.5 after:bg-white'
                     : ""
                 }`}
@@ -109,7 +108,9 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
                   key={item.name}
                   href={item.path}
                   className={`text-white hover:text-orange-200 transition-colors duration-200 py-2 px-2 rounded ${
-                    currentPath === item.path ? "bg-orange-600 font-medium" : ""
+                    window.location.pathname === item.path
+                      ? "bg-orange-600 font-medium"
+                      : ""
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
