@@ -68,7 +68,6 @@ app.get("/api/ideas", async (req, res) => {
   }
 });
 
-// Handle React Router - serve index.html for all non-API routes
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
